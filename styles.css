@@ -1,0 +1,157 @@
+/* Reset some basic elements */
+body, h1, h2, p, ul, li, a, img, video, audio, iframe, form, input, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header, .nav, .content, .footer {
+    margin-bottom: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #a0c4ff;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header em {
+    font-size: 1.2em;
+}
+
+nav {
+    background-color: #e0e0e0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #000;
+}
+
+.cover-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cover-container img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #333;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+
+.content p, .content ul, .content form {
+    margin-bottom: 20px;
+}
+
+.content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.content ul li {
+    margin-bottom: 5px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"], form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #004494;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    margin: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #a0c4ff;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #f1f1f1;
+}
+
