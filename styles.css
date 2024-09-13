@@ -1,157 +1,350 @@
-/* Reset some basic elements */
-body, h1, h2, p, ul, li, a, img, video, audio, iframe, form, input, select, textarea {
+* {
     margin: 0;
     padding: 0;
-    border: 0;
+    box-sizing: border-box; 
     font-family: 'Poppins', sans-serif;
 }
 
+/* General Styles */
 body {
-    background-color: #f9f9f9;
-    color: #333;
     line-height: 1.6;
+    background-color: #fdfdfd;
+    color: #333;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+/* Header */
+.header {
+    background-color: rgba(139, 195, 74, 0.5);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-.header, .nav, .content, .footer {
-    margin-bottom: 20px;
-}
-
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #a0c4ff;
-    color: #fff;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-header em {
-    font-size: 1.2em;
-}
-
-nav {
-    background-color: #e0e0e0;
-    padding: 10px;
-}
-
-nav ul {
-    list-style-type: none;
+.navbar {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 2rem;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
+.navbar a {
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem;
 }
 
-nav ul li a:hover {
-    color: #000;
+.navbar a:hover, .navbar .active {
+   background-color: #ddd;
+   color: black;
+   border-color: #ddd;
+   border-radius: 5px;
+   cursor: pointer;
+
 }
 
-.cover-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.cover-container img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #333;
-}
-
-.content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.content h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #0056b3;
-}
-
-.content p, .content ul, .content form {
-    margin-bottom: 20px;
-}
-
-.content ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-.content ul li {
-    margin-bottom: 5px;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input[type="text"], form select, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form input[type="submit"] {
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #ededed;
     cursor: pointer;
 }
 
-form input[type="submit"]:hover {
-    background-color: #004494;
+#menu-toggle {
+    display: none;
 }
 
-iframe {
-    display: block;
+#menu-toggle:checked + .menu-icon + .navbar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 30%;
+    background-color:rgba(139, 195, 74, 0.5);
+    text-align: center;
+}
+
+
+/* Sections */
+/* Home */
+
+.home {
+    position: relative;
+    background: url('https://weexplorecanada.com/wp-content/uploads/2023/12/Prince-Edward-Island-Facts-Twitter.jpg') no-repeat center center;
+    background-size: cover;
     width: 100%;
-    border: none;
-    margin: 20px 0;
+    height: 600px; /* Adjust the height as needed */
+    overflow: hidden;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.home:hover .overlay {
+    opacity: 1;
+}
+
+.overlay p {
+    color: white; /* Adjust text color as needed */
+    margin: 0;
+    font-size: 40px;
+    font-weight: 500;
+}
+.overlay p em {
+    color: #8bc34a;
+    font-style: italic;
+}
+
+/* Introduction */
+.introduction {
+    padding: 2rem;
+    text-align: center;
+}
+
+.introduction p{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Background */
+.background {
+    padding: 2rem;
+    text-align: center;
+}
+
+.background p{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Summary */
+.summary {
+    padding: 2rem;
+    text-align: center;
+}
+
+
+.summary img {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    display: flex; /* Ensure the image is treated as a block element */
+    align-items: center; /* Vertically center the image */
+    justify-content: center; /* Horizontally center the image */
+    margin: 0 auto;
+}
+
+.summary p{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Characters */
+.characters {
+    padding: 2rem;
+    text-align: center;
+}
+
+
+.characters p{
+    text-align: left;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-align: justify;
+}
+.characters ul{
+    text-align: left;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    list-style-type: disc;
+}
+.characters li{
+    margin-bottom: 0.5rem;
+}
+
+/* Feedback */
+.feedback {
+    padding: 2rem;
+    text-align: center;
+    background-image: url("https://media.newyorker.com/photos/5914be07da561b79ebf192b9/master/pass/Larson-Anne-of-Green-Gables.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section h2 {
+    border-bottom: 2px solid #8bc34a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 40px;
+    color: #4a773c;
+}
+
+/* Feedback Form */
+.feedback form {
+    background-color: #f2f2f2;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.feedback form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feedback form input[type="text"],
+.feedback form select,
+.feedback form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.feedback form input[type="submit"] {
+    background-color: #8bc34a;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.feedback form input[type="submit"]:hover {
+    background-color: #6f9f34;
+}
+
+/* Footer */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #a0c4ff;
-    color: #fff;
-    font-size: 0.9em;
+    font-size: 18px;
+    background-color: #4a773c;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
 
 footer p {
-    margin-bottom: 5px;
+    margin: 10px;
+    text-align: center;
 }
 
-footer a {
-    color: #fff;
-    text-decoration: underline;
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8bc34a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: background-color 0.3s;
 }
 
-footer a:hover {
-    color: #f1f1f1;
+#scrollToTopBtn:hover {
+    background-color: #6f9f34;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .cover-container {
+        padding: 1rem;
+    }
+
+  .overlay p {
+        font-size: 30px;
+        padding: 30px;
+    }
+    .content {
+        padding: 1.5rem 3%;
+    }
+
+    .navbar {
+        display: none;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        font-size: 50px;
+      
+    }
+
+    section h2 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .cover-container h1 {
+        font-size: 2rem; /* Adjust cover heading size */
+    }
+
+    .feedback form {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .feedback form input[type="submit"] {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 0.9rem; /* Smaller font size for links */
+        padding: 0.5rem;
+    }
+
+    .cover-container h1 {
+        font-size: 1.8rem; /* Adjust cover heading size for smaller screens */
+    }
+
+    section h2 {
+        font-size: 1.4rem; /* Further adjust heading size */
+    }
+
+    .content {
+        padding: 1rem 2%;
+    }
+
+    .feedback form {
+        padding: 1rem;
+    }
+
+    footer {
+        font-size: 16px; /* Adjust footer font size */
+    }
+}
