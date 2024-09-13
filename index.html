@@ -4,28 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANNE OF GREEN GABLES</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        // Initialize EmailJS with the public key
+        emailjs.init("AT9WkfG3gTlGLhZGI"); // Replace with your actual public key
+      })();
+    </script>
+    
+    <script type="text/javascript">
+      window.onload = function () {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent the default form submission
+    
+          // Send the form using EmailJS
+          emailjs.sendForm('contact_service', 'contact_form', this).then(
+            function () {
+              showResponse('Success! Your message has been sent.', 'success');
+            },
+            function (error) {
+              showResponse('Failed to send the message. Please try again.', 'error');
+              console.error('FAILED...', error);
+            }
+          );
+        });
+      };
+    
+      // Function to display response messages
+      function showResponse(message, type) {
+        const responseContainer = document.createElement('div');
+        responseContainer.className = `response-message ${type}`; // Add class based on response type
+        responseContainer.textContent = message;
+    
+        // Append response message to the form container
+        const formContainer = document.querySelector('.form-container');
+        formContainer.appendChild(responseContainer);
+    
+        // Remove the message after 5 seconds
+        setTimeout(() => {
+          responseContainer.remove();
+        }, 5000);
+      }
+    </script>
+
 </head>
 <body>
-    <base href="https://youtu.be/S5qJXYNNINo">
-    <div class="container">
-        <div class="cover-container">
-            <image class="img">
-             <img src="https://m.media-amazon.com/images/M/MV5BM2Q0YjcyOTMtZGExZi00MWMwLTk5NDktODgzYmMyZTJmZWQ2L2ltYWdlXkEyXkFqcGdeQXVyNTUyNDExOTY@._V1_.jpg" width="1200"height="900" alt="Anne of Green Gables">
-            </image>
-            <h1>Anne of Green Gables</h1>
-            <em>By Lucy Maud Montgomery</em>
-        </div>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">Introduction</a></li>
-            <li><a href="#">Background</a></li>
-            <li><a href="#">Summary</a></li>
-            <li><a href="#">Characters</a></li>
-            <li><a href="#">Feedback</a></li>
-        </ul>
+    <header class="header">
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <i class='bx bx-menu'></i></label>
+
+    <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#background">Background</a>
+            <a href="#characters">Characters</a>
+            <a href="#summary">Summary</a>
+            <a href="#feedback">Feedback</a>
+        
     </nav>
+    </header>
+
     <div class="content">
+        <section id="home" class="home">
+            <div class="overlay">
+                <p>Welcome to<br> ANNE OF GREEN GABLES,<br> a classic novel by <em>Lucy Maud Montgomery</em>.</p>
+            </div>
+        </section>
+        
+        <section id="introduction" class="introduction">
         <h2>Introduction</h2>
 
             <p>Anne of Green Gables is a 1908 novel by Canadian author Lucy Maud Montgomery (published as L. M. Montgomery).
@@ -36,7 +89,9 @@
             <p>Since its publication, Anne of Green Gables has been translated into at least 36 languages and has sold more than 50 million copies, making it one of the best-selling books worldwide.
                  It was the first of many novels; Montgomery wrote numerous sequels, and since her death another sequel has been published, as well as an authorized prequel titled Before Green Gables.
                  This prequel was written in 2008 by Budge Wilson to celebrate the 100th anniversary of the book series. The original book is taught to students around the world</p>
-
+            
+        </section>
+        <section id="background" class="background">
         <h2>Background</h2>
           
             <p>In writing the novel, Montgomery was inspired by notes she had made as a young girl about two siblings who were mistakenly sent an orphan girl instead of the boy they had requested, yet decided to keep her.
@@ -46,23 +101,10 @@
                  She based other characters, such as Gilbert Blythe, in part on people she knew.
                  She said she wrote the novel in the twilight of the day while sitting at her window and overlooking the fields of Cavendish.</p>
 
-        <h2>Summary</h2>
-         
-            <p>Anne Shirley, a young orphan from the fictional community of Bolingbroke, Nova Scotia (based upon the real community of New London, Prince Edward Island), is sent to live with Marilla and Matthew Cuthbert, unmarried siblings in their fifties and sixties, after a childhood spent in strangers' homes and orphanages. Marilla and Matthew had originally sought to adopt a boy from the orphanage to help Matthew run their farm at Green Gables, which is set in the fictional town of Avonlea (based on Cavendish, Prince Edward Island). Through a misunderstanding, the orphanage sends Anne instead.
-                Anne is fanciful, imaginative, eager to please, and dramatic.
-                She is also adamant her name should always be spelled with an "e" at the end.
-                However, she is defensive about her appearance, despising her red hair, freckles, and pale, thin frame, but liking her nose.
-                She is talkative, especially when it comes to describing her fantasies and dreams.</p>
-            <p> At first, stern Marilla says Anne must return to the orphanage, but after much observation and consideration, along with kind, quiet Matthew's encouragement, Marilla decides to let her stay.
-                Anne takes much joy in life and adapts quickly, thriving in the close-knit farming village. Her imagination and talkativeness soon brighten up Green Gables.
-                Anne attacks Gilbert</p>
-            <p>The book recounts Anne's struggles and joys in settling into Green Gables (the first real home she's ever known): the country school where she quickly excels in her studies; her friendship with Diana Barry, the girl living next door (her best or "bosom friend" as Anne fondly calls her); her budding literary ambitions; and her rivalry with her classmate Gilbert Blythe, who teases her about her red hair. For that, he earns her instant hatred, although he apologizes several times. As time passes, however, Anne realizes she no longer hates Gilbert, but her pride and stubbornness keep her from speaking to him.
-                The book also follows Anne's adventures in Avonlea. Episodes include playtime with her friends Diana, calm, placid Jane Andrews, and beautiful, boy-crazy Ruby Gillis. She has run-ins with the unpleasant Pye sisters, Gertie and Josie, and frequent domestic "scrapes" such as dyeing her hair green while intending to dye it black, and accidentally getting Diana drunk by giving her what she thinks is raspberry cordial but which turns out to be currant wine.
-                At sixteen, Anne goes to Queen's Academy to earn a teaching license, along with Gilbert, Ruby, Josie, Jane, and several other students, excluding Diana, much to Anne's dismay. She obtains her license in one year instead of the usual two and wins the Avery Scholarship awarded to the top student in English.
-                This scholarship would allow her to pursue a Bachelor of Arts (B.A.) degree at the fictional Redmond College (based on the real Dalhousie College) on the mainland in Nova Scotia.</p>
-            <p>Near the end of the book, however, tragedy strikes when Matthew dies of a heart attack after learning that all of his and Marilla's money has been lost in a bank failure. Out of devotion to Marilla and Green Gables, Anne gives up the scholarship to stay at home and help Marilla, whose eyesight is failing. She plans to teach at the Carmody school, the nearest school available, and return to Green Gables on weekends.
-                In an act of friendship, Gilbert Blythe gives up his teaching position at the Avonlea School in favor of Anne, to work at the White Sands School instead, knowing that Anne wants to stay close to Marilla after Matthew's death. After this kind act, Anne and Gilbert's friendship is cemented, and Anne looks forward to what life will bring next.</p>
-                
+        </section>
+
+
+    <section id="characters" class="characters">
     <h2>Characters</h2>
 
      <p>The Green Gables household</p>
@@ -94,10 +136,33 @@
             <li>Mr. Thomas Lynde </li>
 
         </ul>
-        <iframe src="https://en.wikipedia.org/wiki/Anne_of_Green_Gables" width="600" height="400" title="Anne of Green Gables "></iframe>
-        <section id="Feedback">
+        
+        </section>
+
+        <section id="summary" class="summary">
+            <h2>Summary</h2>
+            <img src="images/file.png">
+             
+                <p>Anne Shirley, a young orphan from the fictional community of Bolingbroke, Nova Scotia (based upon the real community of New London, Prince Edward Island), is sent to live with Marilla and Matthew Cuthbert, unmarried siblings in their fifties and sixties, after a childhood spent in strangers' homes and orphanages. Marilla and Matthew had originally sought to adopt a boy from the orphanage to help Matthew run their farm at Green Gables, which is set in the fictional town of Avonlea (based on Cavendish, Prince Edward Island). Through a misunderstanding, the orphanage sends Anne instead.
+                    Anne is fanciful, imaginative, eager to please, and dramatic.
+                    She is also adamant her name should always be spelled with an "e" at the end.
+                    However, she is defensive about her appearance, despising her red hair, freckles, and pale, thin frame, but liking her nose.
+                    She is talkative, especially when it comes to describing her fantasies and dreams.</p>
+                <p> At first, stern Marilla says Anne must return to the orphanage, but after much observation and consideration, along with kind, quiet Matthew's encouragement, Marilla decides to let her stay.
+                    Anne takes much joy in life and adapts quickly, thriving in the close-knit farming village. Her imagination and talkativeness soon brighten up Green Gables.
+                    Anne attacks Gilbert</p>
+                <p>The book recounts Anne's struggles and joys in settling into Green Gables (the first real home she's ever known): the country school where she quickly excels in her studies; her friendship with Diana Barry, the girl living next door (her best or "bosom friend" as Anne fondly calls her); her budding literary ambitions; and her rivalry with her classmate Gilbert Blythe, who teases her about her red hair. For that, he earns her instant hatred, although he apologizes several times. As time passes, however, Anne realizes she no longer hates Gilbert, but her pride and stubbornness keep her from speaking to him.
+                    The book also follows Anne's adventures in Avonlea. Episodes include playtime with her friends Diana, calm, placid Jane Andrews, and beautiful, boy-crazy Ruby Gillis. She has run-ins with the unpleasant Pye sisters, Gertie and Josie, and frequent domestic "scrapes" such as dyeing her hair green while intending to dye it black, and accidentally getting Diana drunk by giving her what she thinks is raspberry cordial but which turns out to be currant wine.
+                    At sixteen, Anne goes to Queen's Academy to earn a teaching license, along with Gilbert, Ruby, Josie, Jane, and several other students, excluding Diana, much to Anne's dismay. She obtains her license in one year instead of the usual two and wins the Avery Scholarship awarded to the top student in English.
+                    This scholarship would allow her to pursue a Bachelor of Arts (B.A.) degree at the fictional Redmond College (based on the real Dalhousie College) on the mainland in Nova Scotia.</p>
+                <p>Near the end of the book, however, tragedy strikes when Matthew dies of a heart attack after learning that all of his and Marilla's money has been lost in a bank failure. Out of devotion to Marilla and Green Gables, Anne gives up the scholarship to stay at home and help Marilla, whose eyesight is failing. She plans to teach at the Carmody school, the nearest school available, and return to Green Gables on weekends.
+                    In an act of friendship, Gilbert Blythe gives up his teaching position at the Avonlea School in favor of Anne, to work at the White Sands School instead, knowing that Anne wants to stay close to Marilla after Matthew's death. After this kind act, Anne and Gilbert's friendship is cemented, and Anne looks forward to what life will bring next.</p>
+                 
+    
+        </section>
+        <section id="feedback" class="feedback">
             <h2>Feedback</h2>
-            <form action="submit-feedback.php" method="post">
+            <form id="contact-form" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
                 
@@ -122,10 +187,11 @@
 
         <p>&copy; 2024 Green Gables Reader's Summary Site</p>
         <p>Last updated: 2024-18-07</p>
-        <p><a href="privacy-policy.html">Privacy Policy</a></p>
-        <p><a href="contact-me.html">Contact Me</a></p>
+        <p>Summary by: Viola</p>
 
     </footer>
+    <button id="scrollToTopBtn" title="Go to top"><i class='bx bxs-upvote'></i></button>
 
+    <script src="script.js"></script>
 </body>
 </html>
